@@ -34,10 +34,10 @@ class App extends Component {
    }
 
    deleteToDo(index) {
-     const todos = this.state.todos.filter(todos => {
-       return todos !== index
-     });
-     this.setState({ todos: todos });
+     const todos = this.state.todos.slice();
+     const todo = todos[index];
+     const newList = todos.filter(todos => todos !== todo);
+     this.setState({ todos: newList });
    }
 
   render() {
